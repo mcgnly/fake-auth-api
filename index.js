@@ -8,20 +8,16 @@ const fs = require('fs');
 const app = new Koa();
 const router = new Router();
 
-// app.use(serve('.'));
-
-router.get('/reset_password', function *() {
-
-	this.body = {};
-});
-
-router.get('/', function *() {
-
-	this.body = {};
-});
+router
+  .post('/oauth2/signup', function (ctx, next) {
+    ctx.body = 'Hello World!';
+  })
+  .get('/oauth2/signup', function (ctx, next) {
+    ctx.body = 'Hello World!';
+  });
 
 app.use(router.routes());
 
-app.listen(3000);
+app.listen(3003);
 
-console.log('listening on port 3000');
+console.log('listening on port 3003');
