@@ -1,0 +1,20 @@
+{
+  "name": "static_login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-mount": "^2.0.0",
+    "koa-mustache": "0.0.2",
+    "koa-router": "^5.4.0",
+    "koa-static": "^3.0.0",
+    "mustache": "^2.3.0"
+  }
+}
