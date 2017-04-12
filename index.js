@@ -3,12 +3,14 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const mount = require('koa-mount');
+const cors = require('koa-cors');
 const fs = require('fs');
 var bodyParser = require('koa-bodyparser');
 const app = new Koa();
 const router = new Router();
 
 app.use(bodyParser());
+app.use(cors());
 
 router
 	.post('/oauth2/signup', function (ctx, next) {
@@ -21,9 +23,12 @@ router
 		ctx.body = ctx.request.body;//when we send json it'll mirror it back
 	})
 	.post('/oauth2/auth', function (ctx, next) {
-		ctx.body = ctx.request.body;//when we send json it'll mirror it back
+		ctx.body = {
+			redirect_uri: ctx.request.body.redirect_uri,
+			token: 'TEST_TOKEN'
+		};
 	})
-	.get('oauth2/confirm', function (ctx, next) {
+	.post('oauth2/confirm', function (ctx, next) {
 		ctx.body = 'totally signed up';
 	})
 	.get('oauth2/reset-password', function (ctx, next) {
